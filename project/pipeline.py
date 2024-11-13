@@ -6,7 +6,7 @@ import sqlite3
 import requests
 
 
-DATA_DIR = '/Users/alamalsaud/Projects/MadeProject/data'
+DATA_DIR = 'project/data'
 DATABASE_PATH = os.path.join(DATA_DIR, 'cleaned_data.db')
 
 
