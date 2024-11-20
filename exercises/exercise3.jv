@@ -1,0 +1,113 @@
+// SPDX-FileCopyrightText: 2023 Friedrich-Alexander-Universitat Erlangen-Nurnberg
+//
+// SPDX-License-Identifier: AGPL-3.0-only
+
+// Example 1: LightTrapping
+// Learning goals:
+// - Understand how to work with XLSX files and workbooks
+
+// 1. This Jayvee model describes a pipeline 
+// from a XLSX file with multiple Sheets in the web 
+// to a SQLite file sink.
+pipeline WorldBankReportPipeline {
+  // 2. We directly get the xlsx file from the web via the HttpExtractor
+  // The data is provided under CC BY-SA 4.0
+  // Saive, Rebecca (2023). Data supporting the publication:
+  // Light trapping in thin silicon solar cells: a review on fundamentals and technologies.
+  // 4TU.ResearchData. Dataset. https://doi.org/10.4121/14554815.v1
+  block WorldBankReportExtractor oftype HttpExtractor {
+    url: "https://thedocs.worldbank.org/en/doc/7d852628d96b9411d43e5d36d5dff941-0050062022/original/Graphs-Chapter-5-02082022.xlsx";
+  }
+
+  // 3. The incoming file is interpreted as a XLSX file and transformed into a Workbook
+  // Workbooks contain at least 1 Sheet. Every sheet has a unique name. 
+  block WorldBankReportTextXLSXInterpreter oftype XLSXInterpreter { }
+
+  // 4.1 Here, we pick one sheet with the name 'RefractiveIndexSi GaAs' from the Workbook to use within our pipeline. 
+  // The output type from SheetPicker is Sheet, which was already introduced in the cars example
+  block WorldBankReportSheetpicker oftype SheetPicker {
+    sheetName: 'Figure S5.1.2';
+  }
+// Select the specific data as range
+    block RangePicker oftype CellRangeSelector {
+        select: range P2:S45;
+    }
+  block NameHeaderWriter oftype CellWriter {
+           at: range P2:S2;  
+        write: [
+            "Country Code",
+            "Economy",
+            "GDP per Capita",
+            "Bond Issuance Share"
+        ];
+    }
+
+  block WorldBankGDPReportTableInterpreter oftype TableInterpreter {
+    
+        header: true;
+        columns: [
+            "Country Code" oftype CountryCodeAlpha3,
+            "GDP per Capita" oftype GDPValueValidator
+        ];
+    }
+
+    // Process Bond Issuance Share data
+    block WorldBankBondDataProcessor oftype TableInterpreter {
+        header: true;
+        columns: [
+            "Country Code" oftype CountryCodeAlpha3,
+            "Bond Issuance Share" oftype BondShareValidator
+        ];
+    }
+
+    // Save GDP data into SQLite
+    block GDPDataSaver oftype SQLiteLoader {
+        table: "gdpPerCapita";
+        file: "./country-stats.sqlite";
+    }
+
+    // Save Bond Issuance Share data into SQLite
+    block BondDataSaver oftype SQLiteLoader {
+        table: "bondIssuance";
+        file: "./country-stats.sqlite";
+    }
+    WorldBankReportExtractor
+    -> WorldBankReportTextXLSXInterpreter
+    -> WorldBankReportSheetpicker
+    -> NameHeaderWriter
+    -> RangePicker
+        -> WorldBankGDPReportTableInterpreter
+        -> GDPDataSaver;
+
+    RangePicker  
+        -> WorldBankBondDataProcessor
+        -> BondDataSaver;
+  
+
+ 
+}
+
+// Validation Rules
+// constraint ValidCountryCode on CountryCodeValidator:
+//     value matches /^[A-Za-z]{3}$/;
+
+constraint PositiveDecimal on GDPValueValidator:
+    value > 0;
+
+constraint RangeCheck on BondShareValidator:
+    value >= 0 and value <= 1;
+
+// Validation for Data Columns
+// valuetype CountryCodeValidator oftype CountryCodeAlpha3 {
+//     constraints: [CountryCodeAlpha3];
+// }
+
+valuetype GDPValueValidator oftype decimal {
+    constraints: [PositiveDecimal];
+}
+
+valuetype BondShareValidator oftype decimal {
+    constraints: [RangeCheck];
+}
+
+  
