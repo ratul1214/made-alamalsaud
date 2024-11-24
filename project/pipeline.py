@@ -10,7 +10,7 @@ import shutil
 
 
 DATA_DIR = 'project/data'
-DATABASE_PATH = os.path.join(DATA_DIR, 'cleaned_data.db')
+DATABASE_PATH = os.path.join(DATA_DIR, 'cleaned_data.sqlite')
 
 
 
