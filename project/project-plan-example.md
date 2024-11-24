@@ -7,7 +7,7 @@ Awesome MADE project about bear attack.
 ## Main Question
 
 <!-- Think about one main question you want to answer based on the data. -->
-1. Which state of north america is most dangerous for bear attack?
+1. Which state and time of north america is most dangerous for bear attack? Does it related to the age?
 
 ## Description
 
@@ -23,7 +23,7 @@ I am planning to use kaggle data source.
 * Metadata URL: https://www.kaggle.com/datasets/danela/fatal-bear-attacks-north-america/data
 * Data URL: https://raw.githubusercontent.com/szabolcsfule/bear_attacks/master/bear_attacks.csv
 * Data Type: CSV
-* Metadata URL: https://www.kaggle.com/datasets/danela/fatal-bear-attacks-north-america/data
+* Metadata URL: https://www.kaggle.com/datasets/stealthtechnologies/bear-attacks-north-america/data
 * Data URL: https://raw.githubusercontent.com/szabolcsfule/bear_attacks/master/bear_attacks.csv
 * Data Type: CSV
 Short description of the DataSource.
