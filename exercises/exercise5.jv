@@ -12,7 +12,7 @@ pipeline StopsPipeline {
 
 
     block gtfsDataExtractor oftype HttpExtractor {
-        url: "https://gtfsData.rhoenenergie-bus.de/gtfsData.zip";
+        url: "https://gtfs.rhoenenergie-bus.de/GTFS.zip";
     }
 
     block gtfsDataZipInterpreter oftype ArchiveInterpreter {
@@ -47,7 +47,7 @@ pipeline StopsPipeline {
 
     block StopsLoader oftype SQLiteLoader {
         table: "stops";
-        file: "./gtfsData.sqlite";
+        file: "./gtfs.sqlite";
     }
 }
 // type declaretion
