@@ -1,14 +1,15 @@
-# Exercise Badges
 
-![](https://byob.yarr.is/apudasm10/made-template-fau/score_ex1) ![](https://byob.yarr.is/apudasm10/made-template-fau/score_ex2) ![](https://byob.yarr.is/apudasm10/made-template-fau/score_ex3) ![](https://byob.yarr.is/apudasm10/made-template-fau/score_ex4) ![](https://byob.yarr.is/apudasm10/made-template-fau/score_ex5)
+# Analyzing Bear-Human Conflicts in North America: Spatial Trends, Risk Factors, and Strategies for Coexistence
 
-# Climate Impact on Urban Mobility: Analyzing Bike-Sharing Demand
+Bear attacks in North America are a significant concern for outdoor enthusiasts, wildlife researchers, and policymakers. Understanding the patterns and factors contributing to these incidents is essential for enhancing public safety, protecting wildlife, and fostering coexistence between humans and bears. This report aims to investigate the frequency, geographic distribution, and contextual factors of bear attacks in North America. By analyzing available data.
 
-Urban bike-sharing systems have emerged as a popular and eco-friendly mode of transportation in many cities, significantly mitigating climate change by reducing dependency on fossil fuels and lowering carbon emissions. The Capital Bikeshare and Seoul Bike Sharing systems are perfect examples of this trend. Understanding the factors that impact bike share rentals is crucial for optimizing efficiency and ensuring rider demand. This study analyzes the factors influencing bike share rentals using data from two different datasets from two countries. By exploring the impact of weather (temperature, humidity, and wind speed), we will try to find trends and patterns in bike rental demand. Thus, this analysis will provide valuable and practical insights into the question, "How does climate change (temperature, humidity, and wind speed) affect bike rentals?". It will also ensure sufficient bike availability and contribute to the fight against climate change by promoting sustainable transportation alternatives.
+
 
 ## Question
 
-How does climate change (temperature, humidity, and wind speed) affect bike rentals?
+What are the spatial trends in bear attacks across North America?
+Are there identifiable factors, such as seasonality, age of victim, attack description, associated with a higher risk of bear attacks?
+What can be learned to mitigate future bear-human conflicts?
 
 ## Datasources
 
@@ -16,23 +17,23 @@ How does climate change (temperature, humidity, and wind speed) affect bike rent
 
 ### Datasource1: Bike Sharing
 
-* Metadata URL: <https://archive.ics.uci.edu/dataset/275/bike+sharing+dataset>
+* Metadata URL: <[https://archive.ics.uci.edu/dataset/275/bike+sharing+dataset](https://www.kaggle.com/datasets/danela/fatal-bear-attacks-north-america/data)>
 
-* Data URL: <https://archive.ics.uci.edu/static/public/275/bike+sharing+dataset.zip>
+* Data URL: <[https://archive.ics.uci.edu/static/public/275/bike+sharing+dataset.zip](https://raw.githubusercontent.com/szabolcsfule/bear_attacks/master/bear_atta cks.csv)>
 
 * Data Type: Zip -> CSV
 
-The dataset provides hourly and daily rental bike counts from 2011 to 2012, along with corresponding weather and seasonal data.  It can be used to analyze factors influencing Capital bikeshare rentals.
+This dataset contains information of deadly attacks of wild bears in North America.
 
 ### Datasource2: Seoul Bike Sharing Demand
 
-* Metadata URL: <https://archive.ics.uci.edu/dataset/560/seoul+bike+sharing+demand>
+* Metadata URL: <[https://archive.ics.uci.edu/dataset/560/seoul+bike+sharing+demand](https://www.kaggle.com/datasets/stealthtechnologies/bear-attacks-north-ameri ca)>
 
-* Data URL: <https://archive.ics.uci.edu/static/public/560/seoul+bike+sharing+demand.zip>
+* Data URL: <[https://archive.ics.uci.edu/static/public/560/seoul+bike+sharing+demand.zip](https://www.kaggle.com/datasets/stealthtechnologies/bear-attacks-north-ameri ca/data)>
 
 * Data Type: Zip -> CSV
 
-The dataset provides hourly rental bike counts in Seoul from 2017 to 2018, along with corresponding weather data and holiday information.  It can be used to analyze factors influencing Seoul Bike Sharing System.
+This dataset shows every recorded killing by a black, brown, or polar bear from 1900-present day in North America.
 
 ## Work Packages
 
