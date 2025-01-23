@@ -15,21 +15,21 @@ What can be learned to mitigate future bear-human conflicts?
 
 <!-- Describe each datasources you plan to use in a section. Use the prefic "DatasourceX" where X is the id of the datasource. -->
 
-### Datasource1: Bike Sharing
+### Datasource1: Fatal Bear Attack.
 
-* Metadata URL: <[https://archive.ics.uci.edu/dataset/275/bike+sharing+dataset](https://www.kaggle.com/datasets/danela/fatal-bear-attacks-north-america/data)>
+* Metadata URL: <[Fatal Bear Attack.](https://www.kaggle.com/datasets/danela/fatal-bear-attacks-north-america/data)>
 
-* Data URL: <[https://archive.ics.uci.edu/static/public/275/bike+sharing+dataset.zip](https://raw.githubusercontent.com/szabolcsfule/bear_attacks/master/bear_atta cks.csv)>
+* Data URL: <[https://raw.githubusercontent.com/szabolcsfule/bear_attacks/master/bear_attacks.csv](https://raw.githubusercontent.com/szabolcsfule/bear_attacks/master/bear_attacks.csv)>
 
 * Data Type: Zip -> CSV
 
 This dataset contains information of deadly attacks of wild bears in North America.
 
-### Datasource2: Seoul Bike Sharing Demand
+### Datasource2: Bear Attacks North America
 
-* Metadata URL: <[https://archive.ics.uci.edu/dataset/560/seoul+bike+sharing+demand](https://www.kaggle.com/datasets/stealthtechnologies/bear-attacks-north-ameri ca)>
+* Metadata URL: <[Bear Attacks North America](https://www.kaggle.com/datasets/stealthtechnologies/bear-attacks-north-america)>
 
-* Data URL: <[https://archive.ics.uci.edu/static/public/560/seoul+bike+sharing+demand.zip](https://www.kaggle.com/datasets/stealthtechnologies/bear-attacks-north-ameri ca/data)>
+* Data URL: <[https://www.kaggle.com/datasets/stealthtechnologies/bear-attacks-north-america/data](https://www.kaggle.com/datasets/stealthtechnologies/bear-attacks-north-america/data)>
 
 * Data Type: Zip -> CSV
 
